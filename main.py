@@ -12,10 +12,13 @@ with open("Config/techcrunch.yaml", "r") as f:
             )
     tc.parse()
     print("Done with loading TC articles.")
+    print("\nTest getArticlesByAuthor:\n")
 
-    # for rec in tc.storage.getArticlesByAuthor("Catherine Shu"):
-    #     print(rec)
-    # for rec in tc.storage.getAllArticles():
-    #     print(rec)
+    for rec in tc.storage.getArticlesByAuthor("Catherine Shu"):
+        print(rec)
+    print("\nTest getAllArticles:\n")
+    for rec in tc.storage.getAllArticles():
+        print(rec)
+    print("\nTest getAllAuthors:\n")
     for rec in tc.storage.getAllAuthors():
         print(rec)
