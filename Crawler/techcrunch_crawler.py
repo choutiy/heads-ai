@@ -15,6 +15,7 @@ class TechCrunchCrawler(crawler.Crawler):
             tag_author = tag.find("dc:creator")
             tag_post_id = tag.find("post-id")
             r = record.Record(title=tag_title.get_text().strip(), author=tag_author.get_text().strip(),
-                              content=tag_content.get_text().strip(), external_id=tag_post_id.get_text().strip())
+                              content=tag_content.get_text().strip(),
+                              id="TC" + "_" + tag_post_id.get_text().strip())
             recs.append(r)
         self.storage.batchAddOrUpdate(recs)
