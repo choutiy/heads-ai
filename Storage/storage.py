@@ -10,6 +10,7 @@ class Storage:
         self.df = pd.read_csv(self.path, index_col="id")
 
     def batchAddOrUpdate(self, recs):
-        pass
+        self.df = utils.toDf(recs).combine_first(self.df)
+        self.df.to_csv(self.path)
 
 
