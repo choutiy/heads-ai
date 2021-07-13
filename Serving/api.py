@@ -22,7 +22,7 @@ print("Done with loading TC articles.")
 # shows a list of all articles
 class ArticleList(Resource):
     def get(self):
-        return tc.storage.getAllArticles()
+        return [str(rec) for rec in tc.storage.getAllArticles()]
 
     def put(self):
         raise NotImplementedError('POST not implemented for ArticleList')
@@ -32,7 +32,7 @@ class ArticleList(Resource):
 # shows a list of all authors
 class AuthorList(Resource):
     def get(self):
-        return tc.storage.getAllArticles()
+        return [str(rec) for rec in tc.storage.getAllAuthors()]
 
     def put(self):
         raise NotImplementedError('POST not implemented for AuthorList')
@@ -42,7 +42,7 @@ class AuthorList(Resource):
 # shows a list of all articles by a given author
 class ArticleByAuthor(Resource):
     def get(self, author):
-        return tc.storage.getArticlesByAuthor(author)
+        return [str(rec) for rec in tc.storage.getArticlesByAuthor(author)]
 
     def put(self):
         raise NotImplementedError('POST not implemented for ArticleByAuthor')
